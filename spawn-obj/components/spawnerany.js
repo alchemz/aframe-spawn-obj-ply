@@ -1,4 +1,4 @@
-AFRAME.registerComponent('spawner', {
+AFRAME.registerComponent('spawner-obj', {
   update: function () {
     var el = this.el;
     var spawn = this.spawn.bind(this);
