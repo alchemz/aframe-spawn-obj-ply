@@ -4,10 +4,32 @@
    <meta charset="utf-8">
     <script src="https://aframe.io/releases/0.2.0/aframe.min.js"></script>
     <script src="https://rawgit.com/donmccurdy/aframe-extras/v2.1.1/dist/aframe-extras.loaders.min.js"></script>
+	<script src="https://github.com/donmccurdy/aframe-extras/blob/master/src/controls/universal-controls.js"></script>
+  	<script src="https://sandbox.donmccurdy.com/vr/aframe-extras.js"></script>
+  	<script src="https://cdn.rawgit.com/AltspaceVR/aframe-altspace-component/v0.1.0/dist/aframe-altspace-component.min.js"></script>
+  	<script src="components/spawnerany.js"></script>
+  	<script src="https://aframe.io/aframe-editor/dist/aframe-editor.js"></script>
   </head>
   <body>
     <a-scene>
       <a-entity ply-model="src: url(models/corn.ply)" rotation="-90 0 0" position="0 0 -20"></a-entity>
+      
+      <a-entity id="camera">
+      <a-entity camera universal-controls="movementControls: gamepad, keyboard" kinematic-body jump-ability="enableDoubleJump: true; distance: 3;" position="0 2.2 15">
+      <a-entity cursor="fuse: true; maxDistance: 1.5;" geometry="primitive: ring; radiusInner: 0.00; radiusOuter: 0.02" material="color: black" position="0 0 -20" 
+      spawner-obj="model: models/corn.ply; on: mousedown"></a-entity>
+      </a-entity>
+      </a-entity>
+      
+      <a-entity id="sky" visible="true">
+      <a-sky material="color:grey"></a-sky>
+      </a-entity>
+    
+    <script language="javascript">
+      document.querySelector('#link1').addEventListener('click', function () {
+      document.querySelector('#camera').emit('start-link1');
+    });
+    </script>
     </a-scene>
   </body>
   </html>
