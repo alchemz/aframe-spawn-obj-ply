@@ -16,8 +16,7 @@ AFRAME.registerComponent('spawner', {
     var entity = document.createElement('a-obj-model');
     entity.setAttribute('position', position);
     entity.setAttribute('src', this.data.model);
-    entity.setAttribute('dynamic-body');
-    entity.setAttribute('color', this.data.color);
+	entity.setAttribute('mtl', this.data.material)
     el.sceneEl.appendChild(entity);
   }
 });
